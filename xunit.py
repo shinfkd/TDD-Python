@@ -9,7 +9,7 @@ class TestCase:
 class WasRun(TestCase):
     def __init__(self, name):
         self.wasRun = None
-        TestCase.__init__(self, name)
+        super().__init__(name)
 
     def testMethod(self):
         self.wasRun = 1
@@ -18,7 +18,7 @@ class TestCaseTest(TestCase):
     def testRunning(self):
         test = WasRun("testMethod")
         assert(not test.wasRun)
-        test.run
+        test.run()
         assert(test.wasRun)
 
 TestCaseTest("testRunning").run()
